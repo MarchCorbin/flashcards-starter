@@ -1,5 +1,6 @@
 const Card = require('./Card.js')
 const cardInfo = require('./data')
+const Round = require('./Round')
 
 class Deck {
   constructor() {
@@ -12,10 +13,9 @@ class Deck {
       const rand = Math.floor(Math.random() * this.allCards.length)
       randomDeck.push(this.allCards[rand])
     }
-    return randomDeck
-    }
+    this.activeCards = randomDeck
+  }
   
-
   countCards() {
     return this.activeCards.length
   }
