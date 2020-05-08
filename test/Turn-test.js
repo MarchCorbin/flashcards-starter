@@ -38,5 +38,15 @@ describe('Turn', function() {
     turn.evaluateGuess()
     expect(turn.guess).to.deep.include(card.correctAnswer)
   })
- 
+  it('should be able to give feedback accordingly!', function() {
+    const card = new Card(
+      1,
+      "What allows you to define a set of related information using key-value pairs?",
+      ["object", "array", "function"],
+      "object"
+    )
+    const turn = new Turn('object', card)
+    turn.evaluateGuess()
+    expect(turn.giveFeedback()).to.equal('correct!')
+  })
 })

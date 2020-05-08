@@ -77,3 +77,6 @@ Run the command in your terminal `npm run lint` to run the linter on your JavaSc
 Your linter will look at the JavaScript files you have within the `src` directory and the `test` directory. 
 
 ---
+
+Synopsis of Project:
+ This project will simulate a technical trivia card game. The game will randomly populate a deck with questions and gtheir corresponding answers and prompt the user to answer the questions accordingly. This game will take place entirely on the terminal.
