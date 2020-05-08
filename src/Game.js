@@ -25,11 +25,11 @@ class Game {
   }
 
   startNewRound() {
-    let currentDeck = this.deck.populate()
-    let downToFive = currentDeck.createRandomDeck(5)
-    this.currentRound = new Round(downToFive);
+    this.deck.populate()
+    this.deck.createRandomDeck(5)
+    this.currentRound = new Round(this.deck);
     // this.printMessage(this.deck, this.currentRound)
-    this.printQuestion()
+    this.printQuestion(this.currentRound)
   }
 }
 

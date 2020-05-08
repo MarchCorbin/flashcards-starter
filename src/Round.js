@@ -12,20 +12,21 @@ class Round {
     this.incorrectGuesses = []
   }
   
-  getCurrentCard() {
-    this.currentCard = this.deck[this.turns]
+  returnCurrentCard() {
+    this.currentCard = this.deck.activeCards[this.turns]
+    return this.currentCard
   }
 
   takeTurn(guess) {
-    const currentCard = this.getCurrentCard()
+    const currentCard = this.currentCard
     let currentTurn = new Turn(guess, currentCard)
     if (currentTurn.evaluateGuess()) {
-      currentTurn.giveFeedback()
       this.turns++
+      return currentTurn.giveFeedback()
     } else {
-      currentTurn.giveFeedback()
       this.incorrectGuesses.push(currentCard.id);
       this.turns++
+      return currentTurn.giveFeedback()
     }
   }
 
