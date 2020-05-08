@@ -1,7 +1,8 @@
 const Turn = require('./Turn.js');
 const Card = require('./Card.js');
-const Deck = require('./Deck.js')
-const Game = require('./Game.js')
+const Deck = require('./Deck.js');
+const Game = require('./Game')
+
 
 class Round {
   constructor(deck) {
@@ -27,6 +28,7 @@ class Round {
       this.turns++
     }
   }
+
   calculatePercentCorrect() {
     let correct = this.turns - this.incorrectGuesses.length
     let total = this.turns
@@ -36,8 +38,6 @@ class Round {
   endRound() {
     return `** Round over! ** You answered ${this.calculatePercentCorrect()}% correctly!`
   }
-
-
 }
 
 

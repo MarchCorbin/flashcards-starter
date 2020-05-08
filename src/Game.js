@@ -6,15 +6,15 @@ const Round = require('./Round.js')
 const Turn = require('./Turn')
 
 class Game {
-  constructor(deck) {
-    this.deck = deck
+  constructor() {
+    this.deck = new Deck()
     this.currentRound = null
   }
 
-  printMessage(deck, currentRound) {
-    console.log(`Welcome to FlashCards! You are playing with ${deck.countCards()} cards.
------------------------------------------------------------------------`)
-  }
+//   printMessage(deck, currentRound) {
+//     console.log(`Welcome to FlashCards! You are playing with ${deck.countCards()} cards.
+// -----------------------------------------------------------------------`)
+//   }
 
   printQuestion(round) {
     util.main(round);
@@ -25,11 +25,10 @@ class Game {
   }
 
   startNewRound() {
-    let currentDeck = new Deck()
-    currentDeck.populate()
+    let currentDeck = this.deck.populate()
     let downToFive = currentDeck.createRandomDeck(5)
     this.currentRound = new Round(downToFive);
-    this.printMessage(this.deck, this.currentRound)
+    // this.printMessage(this.deck, this.currentRound)
     this.printQuestion()
   }
 }
